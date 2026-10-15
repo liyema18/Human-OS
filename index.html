@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Human OS — a guide to understanding yourself, humanity, and the world.">
+  <title>Human OS — Understand Life</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Human OS home">
+      <span class="brand-mark">H<span>O</span></span>
+      <span><strong>HUMAN OS</strong><small>KNOWLEDGE FOR LIFE</small></span>
+    </a>
+    <button id="themeToggle" class="icon-btn" aria-label="Toggle colour theme" title="Toggle theme">☼</button>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR GUIDE TO THE HUMAN EXPERIENCE</div>
+        <h1>Understand yourself.<br><span>Understand the world.</span></h1>
+        <p>A growing library for the things every human should have the chance to learn.</p>
+        <label class="searchbar">
+          <span aria-hidden="true">⌕</span>
+          <input id="globalSearch" type="search" placeholder="Search knowledge, questions, concepts…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <div id="searchResults" class="search-results hidden"></div>
+        <div class="hero-meta"><span>✦ 18 knowledge domains</span><span>◉ Learn at your own pace</span></div>
+      </div>
+
+      <section class="section-block">
+        <div class="section-heading"><div><div class="eyebrow">START EXPLORING</div><h2>Knowledge domains</h2></div><span id="domainCount" class="muted small">18 domains</span></div>
+        <div id="domainGrid" class="domain-grid"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading"><div><div class="eyebrow">A GOOD PLACE TO BEGIN</div><h2>Essential knowledge</h2></div><button class="text-btn" data-route="library">View library ↗</button></div>
+        <div id="featuredArticles" class="article-grid"></div>
+      </section>
+
+      <section class="section-block news-section">
+        <div class="section-heading"><div><div class="eyebrow">THE WORLD, IN CONTEXT</div><h2>News desk</h2></div><button class="text-btn" data-route="news">All news ↗</button></div>
+        <p class="muted news-note">Headlines help you stay informed. Read beyond the headline and compare reliable sources.</p>
+        <div id="homeNews" class="news-list"></div>
+        <p class="tiny muted">News needs an internet connection. Headlines and links come from configured public RSS feeds; publishers own their reporting.</p>
+      </section>
+    </section>
+
+    <section id="library" class="screen">
+      <div class="page-head"><div class="eyebrow">THE KNOWLEDGE LIBRARY</div><h1>Explore <span>everything.</span></h1><p>Browse foundational knowledge, then follow the connections into deeper subjects.</p></div>
+      <label class="searchbar compact"><span>⌕</span><input id="librarySearch" type="search" placeholder="Find an article or topic…"></label>
+      <div class="filter-row" id="domainFilters"></div>
+      <div id="libraryResults" class="article-grid"></div>
+    </section>
+
+    <section id="article" class="screen">
+      <button id="backFromArticle" class="back-btn">← Back</button>
+      <article id="articleContent" class="article-page"></article>
+    </section>
+
+    <section id="bookmarks" class="screen">
+      <div class="page-head"><div class="eyebrow">YOUR PERSONAL LIBRARY</div><h1>Saved <span>knowledge.</span></h1><p>Keep useful explanations close at hand.</p></div>
+      <div id="bookmarkResults" class="article-grid"></div>
+    </section>
+
+    <section id="history" class="screen">
+      <div class="page-head"><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h1>Your <span>reading history.</span></h1><p>Recently opened articles are stored on this device.</p></div>
+      <div id="historyResults" class="article-grid"></div>
+      <button id="clearHistory" class="outline-btn">Clear reading history</button>
+    </section>
+
+    <section id="news" class="screen">
+      <div class="page-head"><div class="eyebrow">WORLD & IDEAS</div><h1>News <span>desk.</span></h1><p>A doorway to current reporting. Headlines update when you are online.</p></div>
+      <div class="news-toolbar">
+        <label class="searchbar compact"><span>⌕</span><input id="newsSearch" type="search" placeholder="Search headlines…"></label>
+        <button id="refreshNews" class="outline-btn">↻ Refresh</button>
+      </div>
+      <div id="newsStatus" class="news-status" aria-live="polite">Loading headlines…</div>
+      <div id="newsFeed" class="news-list"></div>
+      <div class="source-note"><strong>Editorial note</strong><p>Human OS does not own or independently verify every publisher's reporting. Check the article, date, original source, evidence and other reputable coverage before drawing conclusions. RSS availability depends on each publisher and network access.</p></div>
+    </section>
+
+    <section id="about" class="screen">
+      <div class="page-head"><div class="eyebrow">ABOUT THE PROJECT</div><h1>Knowledge is a <span>human right.</span></h1><p>Human OS is an independent learning project designed to make useful knowledge easier to find and understand.</p></div>
+      <div class="about-card"><h2>How we approach knowledge</h2><ul><li>Explain complex ideas in plain language without stripping away important nuance.</li><li>Separate established evidence from uncertainty, interpretation and opinion.</li><li>Link readers to reputable sources so they can check and go deeper.</li><li>Respect different cultures, contexts and levels of prior knowledge.</li><li>For health, law and finance, provide education rather than personalised professional advice.</li></ul></div>
+      <div class="about-card"><h2>Offline and privacy</h2><p>Bookmarks and reading history stay in your browser's local storage on this device. The service worker can cache the app shell and bundled library. News feeds require internet access and may not be cached.</p><p class="muted tiny">This starter app does not create accounts or send bookmarks to a server.</p></div>
+      <div class="about-card"><h2>Build information</h2><p>Human OS v1.0 · A static HTML/CSS/JavaScript Progressive Web App starter.</p><p class="muted tiny">This is a starter library, not an exhaustive encyclopedia. Expand it carefully and review every article and source before public release.</p></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button class="nav-item active" data-route="home"><span>⌂</span><small>Home</small></button>
+    <button class="nav-item" data-route="library"><span>▤</span><small>Library</small></button>
+    <button class="nav-item" data-route="news"><span>◉</span><small>News</small></button>
+    <button class="nav-item" data-route="bookmarks"><span>☆</span><small>Saved</small></button>
+    <button class="nav-item" data-route="about"><span>◎</span><small>About</small></button>
+  </nav>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
